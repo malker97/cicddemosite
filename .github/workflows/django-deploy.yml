@@ -19,7 +19,7 @@ jobs:
         KEY: ${{ secrets.SSH_KEY }}
       with:
         source: "./src/backend/"
-        target: "/home/zhengmao/"
+        target: "/home/${{ secrets.USERNAME }}"
 
     - name: Executing remote command
       uses: appleboy/ssh-action@master
@@ -28,4 +28,4 @@ jobs:
         USERNAME: ${{ secrets.USERNAME }}
         PORT: ${{ secrets.PORT }}
         KEY: ${{ secrets.SSH_KEY }}
-        script: ls /home/zhengmao
+        script: ls /home/${{ secrets.USERNAME }}
